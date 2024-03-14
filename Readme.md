@@ -1,17 +1,10 @@
-# Teste técnico - Banco Master - Calculadora de valor de viagens
+# Rota de Viagem #
+Escolha a rota de viagem mais barata independente da quantidade de conexões.
+Para isso precisamos inserir as rotas.
 
-Projeto desenvolvido como parte do teste técnico do processo seletivo do banco master para desenvolvedor pleno.
-
-Problema - Dado um n número de conexões para viagens, a aplicação deverá indicar qual é o caminho mais barato para realizar essa viagem, independente do número de conexões.
-
-Solução - Criando dentro de Domain.Structures as estruturas de dados de nodos e grafos, foi possível implementar o algoritmo de Djikstra, que utiliza a iteração por cada nodo ou vértice do grafo, testando se utilizando a aresta ou ligação conseguirá um valor de caminho menor do que o inicial ou algum que já foi encontrado anteriormente.
-
-Após buscar a lista de locais relacionados aos pontos de partida e destino, nodos do grafo e o grafo são criados utilizando um motor.
-
-e um buscador específico para viagens (CheapestTravelFinder) inicia a sua busca pelo caminho mais barato.
-
-## Viagens Padrão pré configuradas
-O readme fornecido para o teste consistia das seguintes viagens que deveriam estar pré configuradas
+# API
+## CRUD de cadastro de ROTAS ##
+* Deverá construir um endpoint de CRUD as rotas disponíveis:
 ```
 Origem: GRU, Destino: BRC, Valor: 10
 Origem: BRC, Destino: SCL, Valor: 5
@@ -21,21 +14,54 @@ Origem: GRU, Destino: ORL, Valor: 56
 Origem: ORL, Destino: CDG, Valor: 5
 Origem: SCL, Destino: ORL, Valor: 20
 ```
-## Interface Rest
+
+## Explicando ## 
+Uma viajem de **GRU** para **CDG** existem as seguintes rotas:
+
+1. GRU - BRC - SCL - ORL - CDG ao custo de $40
+2. GRU - ORL - CDG ao custo de $61
+3. GRU - CDG ao custo de $75
+4. GRU - SCL - ORL - CDG ao custo de $45
+
+O melhor preço é da rota **1**, apesar de mais conexões, seu valor final é menor.
+O resultado da consulta deve ser: **GRU - BRC - SCL - ORL - CDG ao custo de $40**.
+
+Sendo assim, o endpoint de consulta deverá efetuar o calculo de melhor rota.
+
+
+# FRONT-END (Opcional)
+Tela para consumir a API (incluir/alterar/excluir)
+Tela para consultar melhor rota
+* Pode ser apenas uma tela, ou mais, fica a critério do desenvolvedor
+
+
+### Projeto ###
+- Interface Front-End (opcional)
+	Cadastro: CRUD de Rotas
+	Consulta: Deverá ter 2 campos para consulta de rota: **Origem-Destino** e exibir o resultado da consulta chamando a API
+	
+- Interface Rest (Obrigatório)
     A interface Rest deverá suportar o CRUD de rotas:
     - Manipulação de rotas, dados podendo ser persistidos em arquivo, bd local, etc...
     - Consulta de melhor rota entre dois pontos.
 	
-### Exemplo:
-```
-Consulte a rota: GRU-CGD
-Resposta: GRU - BRC - SCL - ORL - CDG ao custo de $40
+  Exemplo:
+  ```
+  Consulte a rota: GRU-CGD
+  Resposta: GRU - BRC - SCL - ORL - CDG ao custo de $40
   
-Consulte a rota: BRC-SCL
-Resposta: BRC - SCL ao custo de $5
-```
+  Consulte a rota: BRC-SCL
+  Resposta: BRC - SCL ao custo de $5
+  ```
 
-## Técnologias utilizadas
+
+## Entregáveis ##
+* Envie apenas o código fonte
+* Preferência no github ou no OneDrive (zipado)
+* Priorize/Estruturar sua aplicação seguindo as boas práticas de desenvolvimento
+* Evite o uso de frameworks ou bibliotecas externas à linguagem
+
+## Técnologias 
 - .NET 6.0
 - Asp.Net 6.0
 
