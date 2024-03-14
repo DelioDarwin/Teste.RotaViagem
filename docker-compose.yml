@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  Teste.RotaViagem.api:
+    image: ${DOCKER_REGISTRY-}techtestbancomastertravelsapi
+    build:
+      context: .
+      dockerfile: src/Teste.RotaViagem.Api/Dockerfile
